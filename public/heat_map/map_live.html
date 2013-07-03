@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Realtime heatmap based on firefly data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        #main {
+            position: relative;
+            width: 940px;
+            padding: 20px;
+            margin: auto;
+        }
+
+        #heatmapArea {
+            position: relative;
+            float: left;
+            width: 800px;
+            height: 600px;
+            background-image: url('map.png');
+            border: 1px dashed black;
+        }
+
+        #configArea {
+            position: relative;
+            float: left;
+            width: 260px;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 10px 20px 10px 20px;
+            -moz-border-radius: 15px;
+            -o-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-radius: 15px;
+            border: 2px solid black;
+            cursor: pointer;
+            color: white;
+            background-color: black;
+        }
+
+        #gen:hover {
+            background-color: grey;
+            color: black;
+        }
+
+        textarea {
+            width: 260px;
+            padding: 10px;
+            height: 200px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .imageA {
+            position: absolute;
+            left: 400px;
+            top: 200px;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="heatmap.js"></script>
+    <script type="text/javascript" src="xively-1.0.4.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            // heatmap configuration
+            var config = {
+                element:document.getElementById("heatmapArea"),
+                radius:45,
+                opacity:60,
+                legend:{
+                    position:'br',
+                    title:'Temperature Distribution'
+                }
+            };
+
+            var heatmap = h337.create(config);
+
+            var initial_data = [
+                {x:320, y:220, count:9},
+                {x:430, y:150, count:12},
+                {x:500, y:210, count:15},
+                {x:560, y:270, count:20},
+                {x:600, y:170, count:5}
+            ]
+            update_heatmap(initial_data);
+            heatmap.get("canvas").onclick = function (ev) {
+                var pos = h337.util.mousePosition(ev);
+                heatmap.store.addDataPoint(pos[0], pos[1]);
+            };
+
+            function update_heatmap(data) {
+
+                // let's get some data
+                var heatmap_data = {
+                    max:95,
+                    data:data
+                };
+
+                heatmap.store.setDataSet(heatmap_data);
+            }
+
+            ;
+
+            document.getElementById("gen").onclick = function () {
+                heatmap.store.generateRandomDataSet(100);
+            };
+        // Make sure the document is ready to be handled
+        $(document).ready(function ($) {
+
+            // Set the Xively API key (https://xively.com/users/YOUR_USERNAME/keys)
+            xively.setKey("zbIPnljLPXanIHrL1tE7FSvreWv8ZmavlMNS7Hx477g8NjaB");
+
+            // Replace with your own values
+            var feedID = 1083186400, // Feed ID (the last number on the URL on the feed page on Xively)
+                    datastreamID = "motion_temps1";       // Datastream ID
+
+            selector = "#myelement";   // Your element on the page - takes any valid jQuery selector
+            $(selector).html(": Live streaming not on, run python-client-heat-map")
+
+            // Get datastream data from Xively
+            xively.datastream.get(feedID, datastreamID, function (datastream) {
+                // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+                // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+                // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+                // Display the current value from the datastream
+//                $(selector).html(datastream["current_value"]);
+
+                // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+                xively.datastream.subscribe(feedID, datastreamID, function (event, datastream_updated) {
+                    // Display the current value from the updated datastream
+
+//                    var stream_val = Math.abs(datastream_updated["current_value"])*10000000011;
+                    var stream_val = Math.abs(datastream_updated["current_value"]);
+                    $(selector).html(stream_val);
+
+
+                    var     number = stream_val,
+                            output = [],
+                            sNumber = number.toString();
+
+                    for (var i = 0, len = sNumber.length; i < len; i += 1) {
+                        output.push(+sNumber.charAt(i));
+                    }
+
+
+
+                    var temp1 = parseFloat(""+output[1]+output[2]+"."+ output[3]);
+                    var temp2 = parseFloat(""+output[4]+output[5]+"."+output[6]);
+                    var temp3 = parseFloat(""+output[7]+output[8]+"."+output[9]);
+                    var temp4 = parseFloat(""+output[10]+output[11]+"."+output[12]);
+                    var temp5 = parseFloat(""+output[13]+output[14]+"."+output[15]);
+                    console.log(temp1);
+
+                    var initial_data = [
+                        {x:320, y:220, count:temp1},
+                        {x:560, y:270, count:temp2},
+                        {x:500, y:210, count:temp3},
+                        {x:430, y:150, count:temp4},
+                        {x:600, y:170, count:temp5}
+                    ];
+
+//                    print initial_data[output[0]-1].x+"px";
+//                    puts initial_data[output[0]-1].y+"px";
+                    // 9 if no motion else id of device
+                    if (parseInt(output[0]) < 9) {
+                        console.log(initial_data[output[0]-1].x+"px");
+                        console.log(initial_data[output[0]-1].x+"py");
+
+                        $("#runnins").css("left", initial_data[output[0]-1].x+"px"); //eft: 400px;
+                        $("#runnins").css("top", initial_data[output[0]-1].y+"px");  //top: 200px;
+                        $("#runnins").css("visibility", "visible");
+                    } else {
+                        $("#runnins").css("visibility", "hidden");
+                    }
+                    update_heatmap(initial_data);
+                });
+
+            });
+
+            // WARNING: Code here will continue executing while we get the datastream data from Xively, use the function associated with datastream.get to work with the data, when the request is complete
+        });
+        };
+    </script>
+</head>
+<body>
+<div id="main">
+    <h2>
+        <small>Live datastream value</small>
+        <span id="myelement"></span></h2>
+    <h1>CMIL Realtime heat and person map based on firefly data</h1>
+
+    <div id="heatmapArea">
+
+    </div>
+    <img src="Runnins.gif" id="runnins" class="imageA" alt="person moving">
+
+    <div id="configArea">
+      <div id="gen" class="btn">Generate some random data</div>
+    </div>
+</div>
+
+</body>
+</html>

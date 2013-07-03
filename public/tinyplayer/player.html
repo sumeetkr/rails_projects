@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" href="player.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+    <script src="oauth2/oauth2.js"></script>
+    <link href="player.css" rel="stylesheet">
+</head>
+<body>
+<div id="title"><h2>Tiny Player</h2><h4 id="song-title"></h4></div>
+
+<div id="controlUI"> 
+    <div id="cover-image"><div id="toggleButton" class="controlButton paused"></div></div>
+    <canvas id="fft"></canvas>
+    <img src="img/prev.png" id="prevButton" class="controlButton">
+    <img src="img/next.png" id="nextButton" class="controlButton">
+</div>
+
+<div>
+    <div id="left">
+        <div id="current-list">
+            <p>
+                Current List
+            </p>
+
+            <div id="current-list-table">
+
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="playlist">
+            <p>
+                Play lists
+            </p>
+            <ul id="playlist-ul">
+                <li class="selected">All</li>
+            </ul>
+        </div>
+        <div id="action">
+            <span class="btn"><a href="#" id="new-list">New Playlist</a></span>
+        </div>
+    </div>
+</div>
+
+<!-- Dancer.js -->
+<script src="libs/dancer.js/src/dancer.js"></script>
+<script src="libs/dancer.js/src/support.js"></script>
+<script src="libs/dancer.js/src/kick.js"></script>
+<script src="libs/dancer.js/src/adapterWebkit.js"></script>
+<script src="libs/dancer.js/src/adapterMoz.js"></script>
+<script src="libs/dancer.js/src/adapterFlash.js"></script>
+<script src="libs/dancer.js/lib/fft.js"></script>
+<script src="libs/dancer.js/lib/flash_detect.js"></script>
+<script src="libs/dancer.js/plugins/dancer.fft.js"></script>
+
+<!-- Demo stuff -->
+<!--<script src="libs/dancer.js/player.js"></script>-->
+
+<script src="index.js"></script>
+<script src="player.js"></script>
+<script src="playlist.js"></script>
+<script src="sharing.js"></script>
+<script src="playlist-dir.js"></script>
+
+</body>
+</html>

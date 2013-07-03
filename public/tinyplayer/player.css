@@ -1,0 +1,184 @@
+body {
+    background: #e1e8e5;
+    font-size: 11px;
+    font-family: "Open Sans";
+    width: 640px;
+    padding: 10px;
+}
+
+h2 {
+    display: inline-block;
+}
+
+h4 {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+}
+
+
+a {
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.btn {
+    display: block;
+    margin-bottom: 10px;
+    float: right;
+}
+
+.btn a {
+    display: inline-block;
+    zoom: 1;
+    width: 108px;
+    padding: 5px 0;
+    line-height: 1.2;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+
+
+.btn a:link, .btn a:visited {
+    color: #ca6445;
+    background: #fae9da;
+}
+
+#more-action a:hover {
+    background: #f4f4f4;
+    color: #369;
+}
+
+#more-action a {
+    display: block;
+    padding: 2px;
+    color: #37a;
+    background: #f8f8f8;
+}
+
+#playlist {
+    overflow: scroll;
+}
+
+ul {
+    list-style: none;
+    -webkit-padding-start: 0px;
+}
+
+#playlist li:hover {
+    background: rgba(150,171,165,0.5);
+}
+
+#current-list-table .share-btn, #playlist li .share-btn {
+    display: none;
+
+}
+
+#current-list-table div:hover .share-btn, #playlist li:hover .share-btn {
+    display: block;
+    float: right;
+    margin-right: 10px;
+    color: #ca6445;
+}
+
+#playlist li {
+    font-size: 11px;
+    width: 220px;
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    background: rgba(198,211,205,0.5);
+    margin-bottom: 5px;
+    position: relative;
+    cursor: pointer;
+    text-indent: 5px;
+    zoom: 1;
+}
+
+#playlist li.selected {
+    background-color: #9dd6c5;
+}
+
+#controlUI {
+    position: relative;
+    background-color: #111;
+    color: #eee;
+    height: 80px;
+    width: 625px;
+}
+
+#controlUI #cover-image{
+    background-color: #fff;
+    display: inline-block;
+    background-size: cover;
+    height: 80px; width: 80px;
+}
+
+#controlUI #fft { width: 445px; height: 80px; left: 130px; top: 0; position: absolute;}
+
+#controlUI #toggleButton { height: 100%; width: 100%; cursor: pointer; background-image: url(img/pause.png); background-size: cover;}
+#controlUI #toggleButton.paused { background-image: url(img/play.png); }
+
+#prevButton {
+    position: absolute;
+    height: 30px; width: 30px; left: 90px; top: 25px;
+}
+#nextButton { 
+    position: absolute;
+    height: 30px; width: 30px; right: 10px; top: 25px;
+}
+
+.controlButton {  opacity: 0.2; cursor: pointer;}
+.controlButton:hover {  opacity: 0.6; }
+
+
+#current-list table tr td:first-child {
+    cursor: pointer;
+}
+
+#current-list-table {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#current-list-table div {
+    padding: 3px 3px;
+    color: #825d5b;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#current-list-table div:hover {
+    background-color: #dbdbd4;
+}
+
+#left {
+    display: block;
+    width: 380px;
+    max-height: 400px;
+    float: left;
+}
+
+#right {
+    width: 220px;
+    margin-left: 25px;
+    max-height: 400px;
+    display: block;
+    float: left;
+}
+
+#playlist-ul {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+
+
