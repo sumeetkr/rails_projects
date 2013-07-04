@@ -1,4 +1,8 @@
 RailsProjects::Application.routes.draw do
+  get "heat_maps/show"
+  match '/map_live', :to => redirect('/public/heat_map/map_live.html')
+  match '/map_demo', :to => redirect('/public/heat_map/map_demo.html')
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
