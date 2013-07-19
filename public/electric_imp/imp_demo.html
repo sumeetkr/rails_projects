@@ -1,0 +1,90 @@
+<html><head><script>
+    function sendForm(form)
+    {
+        // Construct the JSON string in form.value
+        // x is a string ('cos of the quotes)
+        // y is an integer ('cos of no quotes)
+        form.value.value = "{ \"red\": " + form.red.value + ", \"green\": " + form.green.value + ", \"blue\": " + form.blue.value + "  }"
+        form.submit();
+    }
+</script></head>
+<body>
+
+<table width="200" border="1">
+    <tr>
+        <td>Off</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=1>
+            <input type="hidden" name="green" value=1>
+            <input type="hidden" name="blue" value=1>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+    <tr>
+        <td>Red</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=0>
+            <input type="hidden" name="green" value=1>
+            <input type="hidden" name="blue" value=1>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+    <tr>
+        <td>Orange</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=0>
+            <input type="hidden" name="green" value=0>
+            <input type="hidden" name="blue" value=1>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+    </tr>
+    <tr>
+        <td>green</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=1>
+            <input type="hidden" name="green" value=0>
+            <input type="hidden" name="blue" value=1>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+    </tr>
+    <tr>
+        <td>light blue</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=1>
+            <input type="hidden" name="green" value=0>
+            <input type="hidden" name="blue" value=0>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+    <tr>
+        <td>blue</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=1>
+            <input type="hidden" name="green" value=1>
+            <input type="hidden" name="blue" value=0>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+    </tr>
+    <tr>
+        <td>perple</td>
+        <td><form action="https://api.electricimp.com/v1/...use.your.own.address..." method="post" target="stat">
+            <input type="hidden" name="value">
+            <input type="hidden" name="red" value=0>
+            <input type="hidden" name="green" value=1>
+            <input type="hidden" name="blue" value=0>
+            <input type="button" value="ON" onclick="sendForm(this.form);" />
+        </form></td>
+    </tr>
+</table>
+<iframe src="" name="stat">
+</body>
+</html>
