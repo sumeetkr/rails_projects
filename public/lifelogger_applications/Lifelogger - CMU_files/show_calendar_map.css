@@ -1,0 +1,153 @@
+.page {
+    cursor: text;
+    overflow: hidden;
+    display: block;
+    text-align: left;
+}
+
+.page_paginated {
+  border: 1px solid #BBBBBB;
+  margin-bottom: 8px;
+  background: white;
+  box-shadow: 0 0px 0 rgba(255, 255, 255, 0.8) inset, 0 0px 0 rgba(0, 0, 0, 0.1) inset, 0 0 0px rgba(255, 255, 255, 0.5) inset, 0 0 0 0px rgba(0, 0, 0, 0.1), 0 0px 8px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0px 0 rgba(255, 255, 255, 0.8) inset, 0 0px 0 rgba(0, 0, 0, 0.1) inset, 0 0 0px rgba(255, 255, 255, 0.5) inset, 0 0 0 0px rgba(0, 0, 0, 0.1), 0 0px 8px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 0 rgba(255, 255, 255, 0.8) inset, 0 0px 0 rgba(0, 0, 0, 0.1) inset, 0 0 0px rgba(255, 255, 255, 0.5) inset, 0 0 0 0px rgba(0, 0, 0, 0.1), 0 0px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+td{
+    padding: 2px;
+    vertical-align: middle;
+
+}
+
+table{
+    border: 0px;
+}
+
+.div_cell{
+    display: table-cell;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+.ground_truth_event,
+.ground_truth_event a {
+  background-color: #ffffff; /* background color */
+  color: black;           /* text color */
+}
+
+.close_button {
+    /*background-image: url("/images/close.png");*/
+    background: url("/images/gplus.png") no-repeat scroll -41px -40px transparent;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.hover_close_button {
+    background-image: url("/images/close.png");
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.hover_close_button:hover {
+    background-position: 0px -32px;
+
+}
+
+.ui-datepicker
+{
+    z-index: 9999 !important;
+}
+
+#zoom_box{
+    display:none;
+    position: absolute;
+    padding: 10px;
+}
+
+#zoom_button{
+    margin-left: 5px;
+}
+
+/* tell the SVG path to be a thin blue line without any area fill */
+path {
+    stroke-width: 1;
+    fill: none;
+}
+
+.data1 {
+    stroke: green;
+}
+
+.data2 {
+    stroke: orange;
+}
+
+.data3 {
+    stroke: red;
+}
+
+.data4 {
+    stroke: black;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line {
+    stroke: lightgrey;
+}
+
+.x.axis .minor {
+    stroke-opacity: 1;
+}
+
+.x.axis path {
+    /*display: none;*/
+    stroke: #000;
+}
+
+.x.axis text {
+    font-size: 10px;
+}
+
+.y.axis line, .y.axis path {
+    fill: none;
+    stroke: #000;
+}
+
+.y.axis text {
+    font-size: 12px;
+}
+
+.brush rect.extent {
+    fill: steelblue;
+    fill-opacity: .5;
+}
+
+.brush .resize path {
+    fill: #eee;
+    stroke: #666;
+}
+
+.brush .extent {
+    stroke: #F09F8C;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}
+
+#map_canvas {
+    width: 1000px;
+    height: 500px;
+}
+.loading_logo_40 {
+    background: url("/images/loading-small.gif") repeat scroll 120px 0px transparent;
+    height: 40px;
+    width: 40px;
+}

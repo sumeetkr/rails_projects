@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Lifelogger - CMU</title>
+  <link href="http://mlt.sv.cmu.edu:3000/lifeloggerweb.png?1319878973" rel="shortcut icon" type="image/png">
+  <link href="Lifelogger%20-%20CMU_files/style.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/jquery-ui-1.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/jquery-ui-timepicker-addon.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/jquery_003.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/skin.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/demos.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/lifelogger.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/data_table.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/jquery.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/jquery_002.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/fullcalendar.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="Lifelogger%20-%20CMU_files/ga.js" async="" type="text/javascript"></script><script src="Lifelogger%20-%20CMU_files/jquery-1.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery-ui-1.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery_005.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery_004.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery_002.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery_003.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/fullcalendar.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/date.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/application.js" type="text/javascript"></script>
+  <script src="Lifelogger%20-%20CMU_files/swfobject.js" type="text/javascript"></script>
+<script src="Lifelogger%20-%20CMU_files/jwplayer.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+      // For google analytics tracking.
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3839055-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function () {
+          var ga = document.createElement('script');
+          ga.type = 'text/javascript';
+          ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(ga, s);
+      })();
+
+  </script>
+
+
+  <!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+      var sc_project = 8265956;
+      var sc_invisible = 1;
+      var sc_security = "91aba6d0";
+  </script>
+  <script type="text/javascript" src="Lifelogger%20-%20CMU_files/counter.js"></script>
+  <!-- End of StatCounter Code for Defau lt Guide -->
+
+</head>
+<body>
+
+<table style="width: 100%; height: 100%; border: 0px;" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td id="nav_panel" style="width: 190px; padding: 0px; vertical-align: top; height: 100%;">
+      <div style="width: 190px;" class="navPanel">
+        <div id="wordmark" style="width: 190px; height: 85px; padding: 0px; background-color:#990000;">
+          <!--<div id="topnav" style="clear:both;width:580px;height:25px;">-->
+          <div>
+            <a title="Carnegie Mellon University" href="http://www.cmu.edu/"></a>
+          </div>
+        </div>
+
+        <div style="height: 30px; padding: 10px;">
+          
+              <span style="font-size:12px; color: white;">Welcome Guest! | <a style="color: bisque;" href="http://mlt.sv.cmu.edu:3000/login">Login</a> </span>
+          
+        </div>
+        
+        <div>
+          <ul class="menu">
+            
+
+            <li>
+              <a href="http://mlt.sv.cmu.edu:3000/facade/main">Project Info</a>
+            </li>
+            
+            <li>
+              <div style="height: 80px;">&nbsp;</div>
+            </li>
+
+          </ul>
+        </div>
+          
+        </div>
+    </td>
+    <td style="vertical-align: middle;">
+        <link href="Lifelogger%20-%20CMU_files/slides_global.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Lifelogger%20-%20CMU_files/show_calendar_map.css" media="screen" rel="stylesheet" type="text/css">
+<script src="Lifelogger%20-%20CMU_files/slides.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  // Set starting slide to 1
+  var startSlide = 1;
+  // Get slide number if it exists
+  if (window.location.hash) {
+
+    startSlide = parseInt(window.location.hash.replace('#',''));
+    //alert(startSlide);
+  }
+  // Initialize Slides
+  $('#slides').slides({
+    // DONOT use the preload, or we can go to specific slide
+    // by having #slide_num suffix in our URL.
+    //preload: true,
+    //preloadImage: '/images/loading_slides.gif',
+    generatePagination: true,
+    play: 5000,
+    pause: 2500,
+    hoverPause: true,
+    // Get the starting slide
+    start: startSlide,
+    animationComplete: function(current){
+      // Set the slide number as a hash
+      window.location.hash = '#' + current;
+    }
+  });
+
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var filetypes = /\.(zip|pkg)$/i;
+  var baseHref = '';
+  if ($('base').attr('href') != undefined)
+      baseHref = $('base').attr('href');
+  $('a').each(function() {
+      var href = $(this).attr('href');
+      if (href && (href.match(/^https?\:/i)) && (!href.match(document.domain))) {
+          $(this).click(function() {
+              var extLink = href.replace(/^https?\:\/\//i, '');
+              _gaq.push(['_trackEvent', 'External', 'Click', extLink]);
+              if ($(this).attr('target') != undefined && $(this).attr('target').toLowerCase() != '_blank') {
+                  setTimeout(function() { location.href = href; }, 200);
+                  return false;
+              }
+          });
+      } else if (href && href.match(filetypes)) {
+          $(this).click(function() {
+              var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
+              var filePath = href;
+              _gaq.push(['_trackEvent', 'Download', 'Click-' + extension, filePath]);
+              if ($(this).attr('target') != undefined && $(this).attr('target').toLowerCase() != '_blank') {
+                  setTimeout(function() { location.href = baseHref + href; }, 200);
+                  return false;
+              }
+          });
+      }
+  });
+});
+</script>
+
+
+<div>
+
+  <div id="slides">
+    <div style="overflow: hidden; position: relative; display: block;" class="slides_container">
+      <div style="position: relative; width: 2400px; height: 400px; left: -800px;" class="slides_control"><div style="position: absolute; top: 0px; left: 800px; z-index: 0; display: none;" class="slide">
+        <h1>About the Research</h1>
+        <table>
+          <tbody>
+            <tr style="height: 150px;">
+              <td style=" vertical-align: top;">
+                <img src="Lifelogger%20-%20CMU_files/pocket.jpg" alt="Phone" height="150px">
+              </td>
+              <td>
+                <div style="margin-left: 10px; font-size: 10pt; ">
+                  The rapid development in mobile sensor technologies 
+makes collecting real-time daily activity data over large population 
+possible.
+                  This continuous availability of a vast amount of data 
+rescales the landscape of human-centric applications and sensing.<br>
+                  The significant expansion of data population from 
+carefully controlled lab experiments to mass-generated real life mobile 
+sensor data
+                  overwhelm the conventional "one-size-fits-all" 
+modeling methods for activity recognition.
+                  The user heterogeneity in terms of age, behavioral 
+patterns, lifestyle and so on brings in the Population
+                  Diversity Problem that degrades the performance of 
+tradition activity recognition frameworks.<br><br>
+                  
+                  To address these challenges, Carnegie Mellon 
+Lifelogger presents an ongoing research for Personalized Activity 
+Recognition for Context-aware
+                  Mobile Systems. By introducing personalized and 
+adaptive behavior modeling method, the system aims to
+                  index, recognize ,cluster, retrieve, and infer high 
+level semantic meanings of user behaviors in a semi-supervised manner.
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div style="font-size: 18px; float: left; font-weight: bold;">The Team</div>
+                <div style="clear: both;">
+                <ul style="padding-left: 10px; padding-top: 10px; margin: 0px; float: left; ">
+                  <li>
+                    Advisor: <a href="mailto:joy.zhang@sv.cmu.edu">Ying Zhang</a>
+                  </li>
+                  <li>
+                    Architect &amp; Main Developer: <a href="mailto:pang.wu@sv.cmu.edu">Pang Wu</a>
+                  </li>                  
+
+                  <li>
+                      Contributors: <br>
+                      Lifelogger/MobiSens:&nbsp;<a href="mailto:sumeet.kumar@sv.cmu.edu">Sumeet Kumar (2013)</a>,
+                      <a href="mailto:kate.liu@sv.cmu.edu">(Kate) Ying-Chuan Liu (2013)</a>
+                      <br>
+                      MobiSensPC:&nbsp;<a href="mailto:me@yuantian.info">Yuan Tian (2012)</a>,
+                      <a href="mailto:sky.hu@sv.cmu.edu">Sky Hu (2013)</a>,
+                      <a href="mailto:xinghai.hu@sv.cmu.edu">Xinghai Hu (2013)</a>
+                      <br>
+                      Old Lifelogger:&nbsp;<a href="mailto:jiang.zhu@sv.cmu.edu">Jiang Zhu (2010)</a>,
+                      <a href="mailto:pengwen.chen@alumni.cmu.edu">Peng-Wen Chen (2010)</a>,
+                      <a href="mailto:snehal.kumar@gmail.com">Snehal Kumar Chennuru (2010)</a>
+                  </li>
+
+                </ul>
+                <img style="float: right; margin-right: 40px; " src="Lifelogger%20-%20CMU_files/sp_nokia.png" alt="Sponsored by Nokia Research Center" width="64px">
+
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><div style="position: absolute; top: 0px; left: 800px; z-index: 0; display: none;" class="slide">
+        <div style="width: 80%;">
+          <div style="float: left; padding: 20px 10px 0 0; width: 300px; height: 300px; border-right: 1px solid #E5E5E5;">
+            <div>
+              <img style="float: left;" alt="MobiSens Logo" src="Lifelogger%20-%20CMU_files/mobisens.png" height="48" width="48">
+              <div style="margin-left: 58px; margin-bottom: 20px; font-size: 24px;">
+                MobiSens Mobile
+                <div style="color: #888888; font-size: 11px; margin-right: 10px;">
+                  For Smartphone data collection, online activity detection and
+                  Lifelogger hierarchical activity segmentation experiment.
+                </div>
+              </div>
+            </div>
+            <div class="floating_box">
+            <a href="https://play.google.com/store/apps/details?id=edu.cmu.sv.mobisens">
+
+              <div class="floating_box_logo">
+                <img class="android_logo_40" src="Lifelogger%20-%20CMU_files/blank.gif">
+              </div>
+
+              <div style="height: 40px; line-height: 40px; vertical-align: middle;">
+                <div style="font-size: 15px; color: black;">Android</div>
+                <div>Download from Google Play</div>
+              </div>
+              </a>
+            </div>
+
+          </div>
+          <div style="float: left; width: 300px; padding-left: 20px;">
+            <div>
+              <img style="float: left;" alt="MobiSens Logo" src="Lifelogger%20-%20CMU_files/mobisens.png" height="48" width="48">
+              <div style="margin-left: 58px; font-size: 24px; line-height: 48px; vertical-align: middle;">MobiSens PC</div>
+            </div>
+
+
+            <div class="floating_box">
+              <a style="text-decoration: none;" href="http://mlt.sv.cmu.edu:3000/downloads/MobiSensMac.pkg">
+                <div class="floating_box_logo">
+                  <img class="apple_logo_40" src="Lifelogger%20-%20CMU_files/blank.gif">
+                </div>
+                <div style="height: 40px; line-height: 40px; vertical-align: middle;">
+                  <div style="font-size: 15px; color: black;">MacOS X</div>
+                  <div>Download from local server</div>
+                </div>
+              </a>
+            </div>
+
+
+
+            <div class="floating_box">
+              <a href="http://mlt.sv.cmu.edu:3000/downloads/Windows-Installer.zip">
+                <div class="floating_box_logo">
+                  <img class="windows_logo_40" src="Lifelogger%20-%20CMU_files/blank.gif">
+                </div>
+
+                <div style="height: 40px; line-height: 40px; vertical-align: middle;">
+                  <div style="font-size: 15px; color: black;">Windows</div>
+                  <div>Download from local server</div>
+                </div>
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div><div style="position: absolute; top: 0px; left: 800px; z-index: 5; display: block;" class="slide">
+        <h1>System Workflow</h1>
+        <img style="margin-top: 30px; margin-left: 30px;" src="Lifelogger%20-%20CMU_files/how_it_works.png" alt="How it works.">
+      </div><div style="position: absolute; top: 0px; left: 800px; z-index: 0; display: none;" class="slide">
+        <h1>Publications</h1>
+        <div>
+          <ul style=" overflow: auto;">
+            <li>
+              <span>
+                Joy Ying Zhang, Pang Wu, Jiang Zhu, Hao Hu, Flavio 
+Bonomi, "Privacy-preserved Mobile Sensing through Hybrid Cloud Trust 
+Framework," to appear in the Proceedings of IEEE 6th International 
+Conference on Cloud Computing, Santa Clara, CA, June 27-July 2, 2013.
+              </span>
+              <a href="http://mlt.sv.cmu.edu:3000/papers/privacy-preserved-sensing.pdf"><u>Download</u></a>
+            </li>
+            <br>
+            <li>
+              <span>
+                Pang Wu, Jiang Zhu, and Ying Zhang, "MobiSens: A 
+Versatile Mobile Sensing Platform for Real-World Applications," The 
+Journal of Mobile Networks and Applications (DOI: 
+10.1007/s11036-012-0422-y).
+              </span>
+              <a href="http://link.springer.com/article/10.1007/s11036-012-0422-y"><u>Download</u></a>
+            </li>
+            <br>
+            <li>
+              <span>
+                Huan-Kai Peng, Pang Wu, Jiang Zhu, and Ying Zhang, 
+"Helix: Unsupervised Grammar Induction for Structured Human Activity 
+Recognition," to appear in the Proceedings of The IEEE International 
+Conference on Data Mining series (ICDM), Vancouver, Canada, Dec 11-14, 
+2011.
+              </span>
+              <a href="http://mlt.sv.cmu.edu:3000/papers/icdm2011_helix.pdf"><u>Download</u></a>
+            </li>
+            <br>
+            <li>
+              <span>
+                Pang Wu, Huan-Kai Peng, Jiang Zhu and Ying Zhang , 
+"SensCare: Semi-Automatic Activity Summarization System for Elderly 
+Care," to appear in the Proceedings of The 3rd International Conference 
+on Mobile Computing, Applications, and Services (MobiCASE 2011), Los 
+Angeles, CA, October 24-27, 2011.
+              </span>
+              <a href="http://mlt.sv.cmu.edu:3000/papers/mobicase2011_senscare.pdf"><u>Download</u></a>
+            </li>
+            <br>
+            <li>
+              <span>
+                Snehal Kumar Chennuru, Peng-Wen Chen, Jiang Zhu, and 
+Ying Zhang, "Mobile Lifelogger - Recording, Indexing, and Understanding a
+ Mobile User’s Life" in the Proceedings of the Second International 
+Conference on Mobile Computing, Applications, and Services. MOBICASE 
+2010, Santa Clara, USA, Oct. 25-28, 2010.
+              </span>
+              <a href="http://mlt.sv.cmu.edu:3000/papers/mobicase-2010-lifelogger.pdf"><u>Download</u></a>
+            </li>
+            <br>
+            <li>
+              <span>
+                Peng-Wen Chen, Snehal Kumar Chennuru, Senaka Buthpitiya,
+ and Ying Zhang, "A Language-Based Approach to Indexing Heterogeneous 
+Multimedia Lifelog" in the Proceedings of 12th International Conference 
+on Multimodal Interfaces. ICMI 2010, Beijing, China, Nov. 8-12, 2010.
+              </span>
+              <a href="http://mlt.sv.cmu.edu:3000/papers/icmi-2010-lifelogger.pdf"><u>Download</u></a>
+            </li>
+
+            <br>
+            <li>
+              <span>
+                Peng-Wen Chen, Snehal Kumar Chennuru, and Ying Zhang, "A
+ Language Approach to Modeling Human Behavior" in the Proceedings of the
+ Seventh International Conference on Language Resources and Evaluation. 
+LREC 2010, Valletta, Malta, May 17-23, 2010.
+              </span>
+              <a href="http://mlt.sv.cmu.edu:3000/papers/A_Language_Approach_to_Modeling_Human_Behavior.pdf"><u>Download</u></a>
+            </li>
+          </ul>
+        </div>
+      </div></div>
+
+      
+
+      
+
+
+      
+
+    </div>
+  <ul class="pagination"><li><a href="#0">1</a></li><li class=""><a href="#1">2</a></li><li class="current"><a href="#2">3</a></li><li><a href="#3">4</a></li></ul></div>
+
+</div>
+
+    </td>
+  </tr>
+  
+</tbody></table>
+
+
+</body></html>

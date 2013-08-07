@@ -1,7 +1,12 @@
 RailsProjects::Application.routes.draw do
+  resources :applications
+  match '/dashboard' => 'applications#dashboard'
+
   get "heat_maps/show"
-  match '/map_live', :to => redirect('/public/heat_map/map_live.html')
-  match '/map_demo', :to => redirect('/public/heat_map/map_demo.html')
+  match 'heat_map/map_live', :to => redirect('heat_map/map_live.html')
+  match 'heat_map/map_demo', :to => redirect('heat_map/map_demo.html')
+  match '/lifelogger', :to => redirect('/public/lifelogger_applications/Lifelogger - CMU.html')
+  match 'slider', :to => redirect('/jquery-silider/index.html')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

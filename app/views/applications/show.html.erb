@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @application.name %>
+</p>
+<p>
+  <b>Logo:</b>
+  <%= @application.logo_url %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @application.description %>
+</p>
+
+<p>
+  <b>Web url:</b>
+
+  <iframe src="<%= @application.web_url%>" width="70%" height="400px"><p>Placeholder text; only shows up if the page DOESN'T render!</p></iframe>
+</p>
+
+<p>
+  <b>Mobile url:</b>
+    <iframe src="<%= @application.mobile_url %>" width="400" height="500"><p>Placeholder text; only shows up if the page DOESN'T render!</p></iframe>
+</p>
+
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+<%= link_to 'Back', applications_path %>

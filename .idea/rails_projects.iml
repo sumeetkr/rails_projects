@@ -53,8 +53,6 @@
     <orderEntry type="library" scope="PROVIDED" name="guard (v1.5.4, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rspec (v2.3.0, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-spork (v1.4.0, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="haml (v3.1.7, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="haml-rails (v0.3.5, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="heroku (v2.32.9, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="heroku-api (v0.3.5, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.3, RVM: ruby-1.9.3-p286 [cmucourse]) [gem]" level="application" />
