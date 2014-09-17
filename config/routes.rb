@@ -1,7 +1,14 @@
 RailsProjects::Application.routes.draw do
-  get "welcome/index"
+  resources :beacons
+
+
+  resources :scanners
+
+
+  # get 'welcome/index'
 
   resources :applications
+  resources :IPS
   match '/dashboard' => 'applications#dashboard'
 
   get "heat_maps/show"
@@ -9,6 +16,7 @@ RailsProjects::Application.routes.draw do
   match 'heat_map/map_demo', :to => redirect('heat_map/map_demo.html')
   match '/lifelogger', :to => redirect('/public/lifelogger_applications/Lifelogger - CMU.html')
   match 'slider', :to => redirect('/jquery-silider/index.html')
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,7 +67,7 @@ RailsProjects::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

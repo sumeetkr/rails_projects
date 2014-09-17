@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @scanner.identifier %>
+</p>
+
+<p>
+  <b>Beconid:</b>
+  <%= @scanner.beconId %>
+</p>
+
+
+<%= link_to 'Edit', edit_scanner_path(@scanner) %> |
+<%= link_to 'Back', scanners_path %>

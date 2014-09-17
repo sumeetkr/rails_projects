@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806173131) do
+ActiveRecord::Schema.define(:version => 20140917072527) do
 
   create_table "applications", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(:version => 20130806173131) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "logo_url"
+  end
+
+  create_table "beacons", :force => true do |t|
+    t.string   "identifier"
+    t.string   "location"
+    t.decimal  "lat",        :precision => 10, :scale => 6
+    t.decimal  "lng",        :precision => 10, :scale => 6
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "scanners", :force => true do |t|
+    t.string   "identifier"
+    t.integer  "beconId"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
