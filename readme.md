@@ -6,3 +6,4 @@ Database
 
 //Controller
 getLastFoundBeacons()-> {EMEI, BeconId, timestamp}
+getScannersLocations(identifier) -> {identifier, beaconId, lat, lng, time}

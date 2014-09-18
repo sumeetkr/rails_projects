@@ -4,9 +4,21 @@ class ScannersController < ApplicationController
   def index
     @scanners = Scanner.all
 
+    @scanners_with_lat_lan = []
+    @scanners.each do |scanner|
+      @beacon = Beacon.find_by_identifier(scanner.beconId)
+      @scanners_with_lat_lan << {
+                           beacon_id: scanner.beconId,
+                           scanner_identifier: scanner.identifier,
+                           latitude: @beacon.lat,
+                           longitude: @beacon.lat
+          }
+    end
+
+    puts json: @scanner_with_lat_lan
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @scanners }
+      format.json { render json: @scanners_with_lat_lan }
     end
   end
 

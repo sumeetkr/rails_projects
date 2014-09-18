@@ -1,4 +1,8 @@
 RailsProjects::Application.routes.draw do
+  get "ips/scanner_locations"
+
+  get "ips/ScannerLocations"
+
   resources :beacons
 
 
