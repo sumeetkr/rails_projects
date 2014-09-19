@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20140917072527) do
 
   create_table "scanners", :force => true do |t|
     t.string   "identifier"
-    t.integer  "beconId"
+    t.string  "beconId"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
