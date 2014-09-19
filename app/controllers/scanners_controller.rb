@@ -11,7 +11,7 @@ class ScannersController < ApplicationController
                            beacon_id: scanner.beconId,
                            scanner_identifier: scanner.identifier,
                            latitude: @beacon.lat,
-                           longitude: @beacon.lat
+                           longitude: @beacon.lng
           }
     end
 

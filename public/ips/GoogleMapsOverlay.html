@@ -12,6 +12,7 @@
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
 // [START region_initialization]
 // This example creates a custom overlay called USGSOverlay, containing
@@ -23,6 +24,10 @@
 // parent class itself, because we do not wish to modify the parent class.
 
 var overlay;
+var map;
+var markers = [];
+var markerhash = {};
+
 USGSOverlay.prototype = new google.maps.OverlayView();
 
 // Initialize the map and the custom overlay.
@@ -34,7 +39,7 @@ function initialize() {
     
   };
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   map.setMapTypeId('satellite');
   map.setTilt(0);
 
@@ -49,13 +54,34 @@ function initialize() {
   // the bounds of the image, and a reference to the map.
   overlay = new USGSOverlay(bounds, srcImage, map);
 
-  var iconBase = 'http://maps.google.com/mapfiles/';
-  var markerLatLng = new google.maps.LatLng(37.410440, -122.060012);
-  var marker = new google.maps.Marker({
-    position: markerLatLng,
-    map: map,
-    icon: iconBase + 'arrow.png'
-  });
+  // var iconBase = 'http://maps.google.com/mapfiles/';
+  // var markerLatLng = new google.maps.LatLng(37.410440, -122.060012);
+  // var marker = new google.maps.Marker({
+  //   position: markerLatLng,
+  //   map: map,
+  //   icon: iconBase + 'arrow.png'
+  // });
+
+  setInterval(function() {
+    //call $.ajax here
+
+    var url = "../scanners";
+    $.ajax({
+          url: url,
+          type: 'GET',
+          // jsonp is not an option and it does not work anyway with my server setup
+          dataType: "json", // including this does not help
+          success: function (data ) {
+              displayData(data);
+          },
+          error: function(xhr, errorType, exception) {
+              console.log(exception);
+          }
+      });
+
+  }, 2000); //5 seconds
+
+
 }
 // [END region_initialization]
 
@@ -139,7 +165,65 @@ USGSOverlay.prototype.onRemove = function() {
 };
 // [END region_removal]
 
-google.maps.event.addDomListener(window, 'load', initialize);
+function displayData(data) {
+    deleteMarkers();
+
+    // markers = this.markerLocation;
+    // markerhash = this.markerHash;    
+    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    var iconBase = 'http://maps.google.com/mapfiles/';
+    $.each(data, function (data, phoneLocation) {
+    // console.log(phoneLocation.latitude + parseFloat(phoneLocation.longitude));
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(phoneLocation.latitude, phoneLocation.longitude),
+            draggable: false,
+            map: map,
+            icon: iconBase + 'arrow.png',
+            tooltip: '<B>This is a customized tooltip</B>',
+            title:""+ phoneLocation.beacon_id
+    });
+
+        var infoWindow = new google.maps.InfoWindow({
+            content: "Identifier:"+ phoneLocation.scanner_identifier +  
+            " Beacon Id:"+ phoneLocation.beacon_id + 
+            " Location: " + phoneLocation.latitude + ", " + phoneLocation.longitude
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, this);
+        });
+
+        markers.push(marker);
+        markerhash[phoneLocation.beacon_id] = marker;
+    });
+
+    // Raise a dummy event to highlight selected IMSI
+    // var event = document.createEvent("HTMLEvents");
+    // event.initEvent("subscriber_imsi_selected-event", true, true);
+    // document.dispatchEvent(event);
+
+    };
+
+    // Sets the map on all markers in the array.
+    function setAllMap(map) {
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+      }
+    }
+
+    // Removes the markers from the map, but keeps them in the array.
+    function clearMarkers() {
+      setAllMap(null);
+    }
+
+    // Deletes all markers in the array by removing references to them.
+    function deleteMarkers() {
+      clearMarkers();
+      markers = [];
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
   </head>
