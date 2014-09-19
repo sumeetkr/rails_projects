@@ -65,6 +65,26 @@ class ScannersController < ApplicationController
     end
   end
 
+  def update_scanner_beacon
+
+    # {
+    #     "identifier": "SumeetsPhone",
+    #     "beconId": "1071619057806538345"
+    # }
+    @scanner = Scanner.find_by_identifier(params[:identifier])
+    @scanner[:beconId] = params[:beconId]
+
+    respond_to do |format|
+      if @scanner.update_attributes(params[:scanner])
+        format.html { redirect_to @scanner, notice: 'Scanner was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @scanner.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /scanners/1
   # PUT /scanners/1.json
   def update

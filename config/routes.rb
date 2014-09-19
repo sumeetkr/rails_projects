@@ -20,6 +20,9 @@ RailsProjects::Application.routes.draw do
   match 'heat_map/map_demo', :to => redirect('heat_map/map_demo.html')
   match '/lifelogger', :to => redirect('/public/lifelogger_applications/Lifelogger - CMU.html')
   match 'slider', :to => redirect('/jquery-silider/index.html')
+
+  match 'ips', :to=> redirect('IPS/GoogleMapsOverlay.html')
+  post 'scanners/update_scanner_beacon'
   
 
   # The priority is based upon order of creation:
