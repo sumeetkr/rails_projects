@@ -72,7 +72,11 @@ class ScannersController < ApplicationController
     #     "beconId": "1071619057806538345"
     # }
     @scanner = Scanner.find_by_identifier(params[:identifier])
-    @scanner[:beconId] = params[:beconId]
+    if @scanner 
+      @scanner[:beconId] = params[:beconId]
+    else
+      @scanner = Scanner.new(params[:scanner])
+    end
 
     respond_to do |format|
       if @scanner.update_attributes(params[:scanner])
