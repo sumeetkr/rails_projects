@@ -182,7 +182,7 @@ function displayData(data) {
             icon: iconBase + 'arrow.png',
             tooltip: '<B>This is a customized tooltip</B>',
             title:"Beacon Id: "+ phoneLocation.beacon_id
-    });
+        });
 
         var infoWindow = new google.maps.InfoWindow({
             content: "Identifier:"+ phoneLocation.scanner_identifier +  
@@ -191,7 +191,7 @@ function displayData(data) {
         });
 
         google.maps.event.addListener(marker, 'click', function () {
-            infoWindow.open(map, this);
+            infoWindow.open(map, marker);
         });
 
         markers.push(marker);
