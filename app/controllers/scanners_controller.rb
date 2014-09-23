@@ -77,13 +77,12 @@ class ScannersController < ApplicationController
 
     if identifier.nil? || becon_id.nil?
       format.json { render :nothing => true, :status => 503 }
-    
     else
       @scanner = Scanner.find_by_identifier(params[:identifier])
       if @scanner 
         @scanner[:beconId] = params[:beconId]
       else
-        @scanner = Scanner.new(params[:identifier])
+        @scanner = Scanner.new(:identifier => params[:identifier])
       end
 
       respond_to do |format|
