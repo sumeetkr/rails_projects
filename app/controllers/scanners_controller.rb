@@ -7,12 +7,14 @@ class ScannersController < ApplicationController
     @scanners_with_lat_lan = []
     @scanners.each do |scanner|
       @beacon = Beacon.find_by_identifier(scanner.beconId)
-      @scanners_with_lat_lan << {
+      unless(@beacon.nil?)
+        @scanners_with_lat_lan << {
                            beacon_id: scanner.beconId,
                            scanner_identifier: scanner.identifier,
                            latitude: @beacon.lat,
                            longitude: @beacon.lng
           }
+      end
     end
 
     puts json: @scanner_with_lat_lan
