@@ -71,20 +71,29 @@ class ScannersController < ApplicationController
     #     "identifier": "SumeetsPhone",
     #     "beconId": "1071619057806538345"
     # }
-    @scanner = Scanner.find_by_identifier(params[:identifier])
-    if @scanner 
-      @scanner[:beconId] = params[:beconId]
-    else
-      @scanner = Scanner.new(params[:scanner])
-    end
 
-    respond_to do |format|
-      if @scanner.update_attributes(params[:scanner])
-        format.html { redirect_to @scanner, notice: 'Scanner was successfully updated.' }
-        format.json { head :no_content }
+    identifier = params[:identifier]
+    becon_id = params[:beconId]
+
+    if identifier.nil? || becon_id.nil?
+      format.json { render :nothing => true, :status => 503 }
+    
+    else
+      @scanner = Scanner.find_by_identifier(params[:identifier])
+      if @scanner 
+        @scanner[:beconId] = params[:beconId]
       else
-        format.html { render action: "edit" }
-        format.json { render json: @scanner.errors, status: :unprocessable_entity }
+        @scanner = Scanner.new(params[:identifier])
+      end
+
+      respond_to do |format|
+        if @scanner.update_attributes(params[:scanner])
+          format.html { redirect_to @scanner, notice: 'Scanner was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @scanner.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
