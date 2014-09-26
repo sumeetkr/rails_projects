@@ -34,7 +34,7 @@ USGSOverlay.prototype = new google.maps.OverlayView();
 
 function initialize() {
   var mapOptions = {
-    zoom: 20,
+    zoom: 21,
     center: new google.maps.LatLng(37.410372, -122.059683),
     
   };
@@ -195,7 +195,7 @@ function displayData(data) {
         });
 
         map.setCenter(new google.maps.LatLng(phoneLocation.latitude, phoneLocation.longitude));
-        map.setZoom(20);
+        map.setZoom(21);
 
         markers.push(marker);
         markerhash[phoneLocation.beacon_id] = marker;
