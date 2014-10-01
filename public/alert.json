@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "channel": "CM",
+    "format": "Short",
+    "protocol": "paginated",
+    "scheduledFor": 123123123,
+    "endingAt": 1231231123,
+    "text": "FreeFoodAlert",
+    "alertType": "Extreme",
+    "alertType2": "TBD",
+    "polygonType": "Polygon",
+    "fdbURL": "http: //maxwell.sv.cmu.edu/api/feedback/1"
+}

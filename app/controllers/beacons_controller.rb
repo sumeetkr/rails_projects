@@ -69,6 +69,23 @@ class BeaconsController < ApplicationController
     end
   end
 
+  def update_beacons_by_identifier
+    # identifier = params[:identifier]
+    # becon_id = params[:beconId]
+    # "identifier":"7203422764646594139","lat":"37.410459","lng":"-122.059998","location":"B23 Room 117"
+    @beacon = Beacon.find_by_identifier(params[:identifier])
+
+    respond_to do |format|
+      if @beacon.update_attributes(params[:beacon])
+        format.html { redirect_to @beacon, notice: 'Beacon was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @beacon.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /beacons/1
   # DELETE /beacons/1.json
   def destroy

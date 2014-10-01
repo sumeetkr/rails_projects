@@ -23,6 +23,7 @@ RailsProjects::Application.routes.draw do
 
   match 'ips', :to=> redirect('IPS/GoogleMapsOverlay.html')
   post 'scanners/update_scanner_beacon'
+  post 'beacons/update_beacons_by_identifier'
   
 
   # The priority is based upon order of creation:

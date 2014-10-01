@@ -194,8 +194,8 @@ function displayData(data) {
             infoWindow.open(map, marker);
         });
 
-        map.setCenter(new google.maps.LatLng(phoneLocation.latitude, phoneLocation.longitude));
-        map.setZoom(21);
+        // map.setCenter(new google.maps.LatLng(phoneLocation.latitude, phoneLocation.longitude));
+        // map.setZoom(21);
 
         markers.push(marker);
         markerhash[phoneLocation.beacon_id] = marker;
