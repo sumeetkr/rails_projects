@@ -27,7 +27,13 @@ var overlay;
 var map;
 var markers = [];
 var markerhash = {};
-var matSetAtCenter = false;
+var mapSetAtCenter = false;
+var avg_latitude;
+var avg_longitude;
+var last_avg_latitude;
+var last_avg_longitude;
+var count_of_locations;
+
 USGSOverlay.prototype = new google.maps.OverlayView();
 
 // Initialize the map and the custom overlay.
@@ -66,6 +72,10 @@ function initialize() {
     //call $.ajax here
 
     var url = "../scanners";
+    count_of_locations = 0;
+    // avg_latitude = 0.00;
+    // avg_longitude = 0.00;
+
     $.ajax({
           url: url,
           type: 'GET',
@@ -78,6 +88,15 @@ function initialize() {
               console.log(exception);
           }
       });
+
+    // avg_latitude = avg_latitude;
+    // avg_longitude = avg_longitude;
+    if(avg_latitude != last_avg_latitude && avg_longitude != last_avg_longitude){
+          map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
+    }
+
+    last_avg_latitude = avg_latitude;
+    last_avg_longitude = avg_longitude;
 
   }, 2000); //5 seconds
 
@@ -169,8 +188,6 @@ function displayData(data) {
     deleteMarkers();
     // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     var iconBase = 'http://maps.google.com/mapfiles/';
-    var avg_latitude;
-    var avg_longitude;
     $.each(data, function (data, phoneLocation) {
     // console.log(phoneLocation.latitude + parseFloat(phoneLocation.longitude));
 
@@ -193,19 +210,23 @@ function displayData(data) {
             infoWindow.open(map, marker);
         });
 
+        // map.setZoom(20);
+
+        //need a way to average latitudes and longitudes
+        // avg_latitude = avg_latitude + phoneLocation.latitude;
+        // avg_longitude = avg_longitude + phoneLocation.longitude;
         avg_latitude = phoneLocation.latitude;
         avg_longitude = phoneLocation.longitude;
-
-        // map.setZoom(20);
+        count_of_locations = count_of_locations +1;
 
         markers.push(marker);
         markerhash[phoneLocation.beacon_id] = marker;
     });
 
-    if(matSetAtCenter == false){
-        map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
-        matSetAtCenter = true;
-    }
+    // if(mapSetAtCenter == false){
+    //     map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
+    //     mapSetAtCenter = true;
+    // }
 
     // Raise a dummy event to highlight selected IMSI
     // var event = document.createEvent("HTMLEvents");
