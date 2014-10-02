@@ -202,7 +202,7 @@ function displayData(data) {
         markerhash[phoneLocation.beacon_id] = marker;
     });
 
-    if(matSetAtCenter == flase){
+    if(matSetAtCenter == false){
         map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
         matSetAtCenter = true;
     }
