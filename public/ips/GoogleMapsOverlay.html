@@ -27,7 +27,7 @@ var overlay;
 var map;
 var markers = [];
 var markerhash = {};
-
+var matSetAtCenter = false;
 USGSOverlay.prototype = new google.maps.OverlayView();
 
 // Initialize the map and the custom overlay.
@@ -202,7 +202,10 @@ function displayData(data) {
         markerhash[phoneLocation.beacon_id] = marker;
     });
 
-    map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
+    if(matSetAtCenter == flase){
+        map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
+        matSetAtCenter = true;
+    }
 
     // Raise a dummy event to highlight selected IMSI
     // var event = document.createEvent("HTMLEvents");
