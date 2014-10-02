@@ -169,6 +169,8 @@ function displayData(data) {
     deleteMarkers();
     // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     var iconBase = 'http://maps.google.com/mapfiles/';
+    var avg_latitude;
+    var avg_longitude;
     $.each(data, function (data, phoneLocation) {
     // console.log(phoneLocation.latitude + parseFloat(phoneLocation.longitude));
 
@@ -176,7 +178,7 @@ function displayData(data) {
             position: new google.maps.LatLng(phoneLocation.latitude, phoneLocation.longitude),
             draggable: false,
             map: map,
-            icon: iconBase + 'arrow.png',
+            icon: 'icon-current-location.png',
             tooltip: '<B>This is a customized tooltip</B>',
             title:"Beacon Id: "+ phoneLocation.beacon_id
         });
@@ -191,12 +193,16 @@ function displayData(data) {
             infoWindow.open(map, marker);
         });
 
-        // map.setCenter(new google.maps.LatLng(phoneLocation.latitude, phoneLocation.longitude));
-        // map.setZoom(21);
+        avg_latitude = phoneLocation.latitude;
+        avg_longitude = phoneLocation.longitude;
+
+        // map.setZoom(20);
 
         markers.push(marker);
         markerhash[phoneLocation.beacon_id] = marker;
     });
+
+    map.setCenter(new google.maps.LatLng(avg_latitude, avg_longitude));
 
     // Raise a dummy event to highlight selected IMSI
     // var event = document.createEvent("HTMLEvents");
