@@ -1,13 +1,30 @@
 {
-  "id" : 1,
-  "channel": "CM",
-  "format": "Short",
-  "protocol": "paginated",
-  "scheduledFor": 123123123, 
-  "endingAt": 1231231123,
-  "text": "Free Food Alert",
-  "alertType": "Extreme",
-  "alertType2": "TBD",
-  "polygonType": "Polygon",
-  "fdbURL": "http://maxwell.sv.cmu.edu/api/feedback/1",
+    "id": 1,
+    "channel": "CM",
+    "format": "Short",
+    "protocol": "paginated",
+    "scheduledFor": 1410889156000,
+    "endingAt": 1413889156000,
+    "fdbURL": "http://maxwell.sv.cmu.edu/api/feedback/1",
+    "alerts":[
+      {
+        "id": 1,
+        "time": "1412889156000",
+        "message": "Free food alert",
+        "polygon": "donotknownow",
+        "polygonType": "Polygon",
+        "alertType": "Extreme",
+        "alertType2": "TBD"
+      },
+
+      {
+        "id": 2,
+        "time": "1412889156000",
+        "message": "New food alert",
+        "polygon": "donotknownow",
+        "polygonType": "Polygon",
+        "alertType": "Extreme",
+        "alertType2": "TBD"
+      }
+    ]
 }
